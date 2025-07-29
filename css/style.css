@@ -1,0 +1,24 @@
+.container {
+  width: 100%;
+}
+
+.btns button {
+  transition: 0.3s;
+}
+
+.btns button:hover {
+  background-color: black !important;
+  color: #fff;
+}
+#reset-btn {
+  transition: 0.3s;
+}
+#reset-btn:hover {
+  background-color: #b5033e !important;
+}
+@media (min-width: 768px) {
+  .container{
+      width: 60%;
+
+  }
+}

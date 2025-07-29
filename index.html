@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+
+    <link rel="shortcut icon" href="images/rock-paper-scissors.png" type="image/x-icon">
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!-- file css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <h1 class="text-center text-capitalize bg-white p-3 fw-bold text-dark">
+    Rock Paper Scissors Game
+  </h1>
+  <body style="background-color: #ddd">
+    <div class="container py-5">
+      <div
+        style="background: #0a58ca"
+        class="select-game d-flex justify-content-between flex-wrap gap-3 align-items-center p-4 my-3 rounded shadow-lg"
+      >
+        <div class="btns d-flex gap-2 flex-wrap flex-column flex-md-row">
+          <button
+            id="btn-play-game"
+            class="btn bg-white d-block  d-flex justify-content-center gap-1 fs-6 fw-bold align-items-center"
+          >
+            <img
+              class="h-auto"
+              src="images/rock.png"
+              style="width: 16px"
+              alt=""
+            />Rock
+          </button>
+          <button
+            id="btn-play-game"
+            class="btn bg-white d-block d-flex justify-content-center gap-1 fs-6 fw-bold align-items-center"
+          >
+            <img
+              class="h-auto"
+              src="images/paper.png"
+              style="width: 16px"
+              alt=""
+            />Paper
+          </button>
+          <button
+            id="btn-play-game"
+            class="btn bg-white d-block d-flex justify-content-center gap-1 fs-6 fw-bold align-items-center"
+          >
+            <img
+              class="h-auto"
+              src="images/scissors.png"
+              style="width: 16px"
+              alt=""
+            />Scissors
+          </button>
+        </div>
+        <p
+          id="result"
+          style="background-color: #a0b9df8a"
+          class="fw-bold fs-4 px-4 mb-0 text-white rounded-pill"
+        ></p>
+      </div>
+
+      <!-- row -->
+      <div class="row align-items-center position-relative">
+        <div class="col-6 d-flex flex-column align-items-center">
+          <div class="card bg-white p-3 w-100">
+            <div
+              class="fs-2 fw-bold p-2 text-center text-dark rounded bg-body-secondary"
+            >
+              you
+            </div>
+            <div class="img text-center my-4">
+              <img
+                id="player-choice"
+                class="img-fluid"
+                style="height: 130px"
+                src="images/choose.png"
+                alt="choose"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="position-absolute z-2 d-flex justify-content-center">
+          <div
+            class="versus px-2 py-1 px-md-3 py-md-2 rounded text-center fs-5 text-white fw-bold"
+            style="background: #e91e63"
+          >
+            Versus
+          </div>
+        </div>
+        <div class="col-6 d-flex flex-column align-items-center">
+          <div class="card bg-white p-3 w-100">
+            <div
+              class="fs-2 fw-bold p-2 text-center text-dark rounded bg-body-secondary"
+            >
+              Computer
+            </div>
+            <div class="img text-center my-4">
+              <img
+                id="player-pc"
+                class="img-fluid"
+                style="height: 130px"
+                src="images/random.png"
+                alt="choose"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="details-game d-none">
+        <!-- table -->
+        <h2
+          style="background: #0a58ca"
+          class="text-white py-3 text-center rounded-top mt-4 mb-0"
+        >
+          Match History
+        </h2>
+        <table class="table table-bordered table-responsive w-100">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Your Choice</th>
+              <th>Computer's Choice</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody id="body-table">
+            
+          </tbody>
+        </table>
+
+        <!-- state -->
+        <div
+          class="stats d-flex flex-wrap align-items-center bg-white p-3 rounded shadow-lg"
+        >
+          <div
+            style="width: calc(100% / 3)"
+            class="d-flex justify-content-between align-items-center p-3 text-white fs-4 fw-bold bg-success"
+          >
+            Wins <span id="win">2</span>
+          </div>
+          <div
+            style="width: calc(100% / 3)"
+            class="d-flex justify-content-between align-items-center p-3 text-white fs-4 fw-bold bg-danger"
+          >
+            Lose <span id="lose">0</span>
+          </div>
+          <div
+            style="width: calc(100% / 3)"
+            class="d-flex justify-content-between align-items-center p-3 text-white fs-4 fw-bold bg-black"
+          >
+            Draw <span id="draw">1</span>
+          </div>
+        </div>
+        <div id="reset-container">
+          <button
+            id="reset-btn"
+            class="btn d-block w-100 fs-3 text-white mt-3 fw-bold"
+            style="background-color: #e91e63"
+          >
+            Reset Score
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- file js -->
+    <script src="js/main.js"></script>
+    <!-- bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
