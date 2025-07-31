@@ -26,7 +26,7 @@ btnsGame.forEach((el) => {
       let randomImg = Math.floor(Math.random() * selectionArr.length);
       pcImg.src = images[selectionArr[randomImg]];
       toggleButtons(true);
-    }, 50);
+    }, 100);
 
     let pcSelection = Math.floor(Math.random() * selectionArr.length);
 
@@ -46,14 +46,14 @@ btnsGame.forEach((el) => {
       saveMatch(match);
       displayDetailsMatchs();
       updateCounter();
-    }, 1000);
+    }, 2000);
 
     setTimeout(() => {
       toggleButtons(false);
       resultDiv.innerHTML = "";
       playerImg.src = "images/choose.png";
       pcImg.src = "images/random.png";
-    }, 2000);
+    }, 3000);
   });
 });
 
